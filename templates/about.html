@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>about</title>
+    <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+    <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <style>
+        .header_bg {
+            width: 100%;
+            float: left;
+            background-size: 100%;
+        }
+        .navbar {
+            padding: 0px 0px 20px 0px;
+        }
+        .bg-light {
+            background-color: transparent !important;
+        }
+        .navbar-light .navbar-brand {
+            color: rgba(0, 0, 0, .9);
+        }
+        .navbar-brand{
+            color: white;
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-style: none;
+            vertical-align: middle;
+        }
+        .navbar-collapse {
+            flex-grow: 1;
+            align-items: center;
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+        }
+        li {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .navbar-light .navbar-nav .active>.nav-link{
+            color: #fefefd;
+            background-color: #f01c1c;
+        }
+        .nav-item :hover{
+            color: #fefefd;
+            background-color: #f01c1c;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: rgb(255 255 255);
+        }
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: rgb(255 255 255);
+        }
+        .navbar-expand-lg .navbar-nav .nav-link {
+            padding: 30px 20px 10px 20px;
+            font-size: 17px;
+            text-transform: uppercase;
+            margin: 0px 5px;
+        }
+       .nav-link{
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            margin-left: 30px;
+
+        }
+        .form-inline {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+        .login-bt ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        a {
+            color: rgb(255 255 255);
+            text-decoration: none;
+            font-size: 18px;
+            float: left;
+            text-transform: uppercase;
+            padding: 0px 0px 0px 43px;
+        }
+        .user-icon {
+            padding-right: 15px;
+        }
+        .fa {
+            display: inline-block;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+        }
+        .login-bt {
+            width: 210px;
+            margin-top: 28px;
+        }
+        .login-bt li a:hover {
+            color: #f01c1c;
+        }
+        .about_bt {
+            width: 175px;
+            float: left;
+        }
+        .about_bt.active a {
+            color: #fefefd;
+            background-color: #f01c1c;
+        }
+        .about_bt a {
+            width: 100%;
+            float: left;
+            font-size: 18px;
+            background-color: #fefefd;
+            color: #1c130f;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        .callnow_bt {
+            width: 175px;
+            float: left;
+        }
+        .callnow_bt a {
+            width: 100%;
+            float: left;
+            font-size: 18px;
+            background-color: #fefefd;
+            color: #1c130f;
+            text-align: center;
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+        .about-section {
+            width: 100%;
+            float: left;
+        }
+        .layout-padding {
+            padding-top: 100px;
+            padding-bottom: 0px;
+        }
+        .about-section_2 {
+            width: 100%;
+            float: left;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col-md-6{
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .about_taital_box {
+            width: 100%;
+            float: left;
+            padding-top: 15px;
+        }
+        .about_taital {
+            width: 100%;
+            float: left;
+            font-size: 40px;
+            color: #3b3b3b;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-bottom: 0px;
+        }
+        h1 {
+            letter-spacing: 0;
+            position: relative;
+            padding: 0 0 10px 0;
+            line-height: normal;
+            margin: 0;
+        }
+        .about_taital_1 {
+            width: 100%;
+            float: left;
+            font-size: 30px;
+            color: #3b3b3b;
+            margin: 10px 0px;
+        }
+        .about_text {
+            width: 100%;
+            float: left;
+            font-size: 16px;
+            color: #232222;
+            margin: 0px;
+        }
+        .readmore-btn {
+            width: 170px;
+            float: left;
+            margin-top: 40px;
+        }
+        .readmore-btn a {
+            width: 100%;
+            float: left;
+            font-size: 18px;
+            color: #f01c1c;
+            text-transform: uppercase;
+            border-radius: 5px;
+            border: 1px solid #f01c1c;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .about_img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-style: none;
+            vertical-align: middle;
+        }
+        .footer_section {
+            width: 100%;
+            float: left;
+            height: auto;
+            background-color: #1d1d1d;
+            background-size: 100%;
+            padding: 50px 0px;
+        }
+        .footer_social_icon {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer_social_icon ul {
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+        }
+        .footer_social_icon li {
+            float: left;
+        }
+        .footer_social_icon li a {
+            float: left;
+            padding: 5px 10px;
+            background-color: #fff;
+            color: #1d1d1d;
+            border-radius: 100%;
+            font-size: 19px;
+            margin-right: 5px;
+            width: 44px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .location_text {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .location_text ul {
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+        }
+        .location_text li {
+            float: left;
+            font-size: 16px;
+            color: #ffffff;
+            padding: 0px 10px 5px 10px;
+        }
+        .location_text li a {
+            color: #ffffff;
+        }
+        .form-group{
+            display: flex;
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .update_mail {
+            color: #383838;
+            width: 100%;
+            height: 55px;
+            font-size: 18px;
+            padding: 10px 20px 0px 20px;
+            background-color: #efefef;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            display: block;
+            margin-top: 20px;
+            border: 1px solid #f01c1c;
+        }
+        .subscribe_bt {
+            width: 70px;
+            float: left;
+            padding-top: 20px;
+        }
+        .subscribe_bt a {
+            width: 100%;
+            float: left;
+            color: #fefefd;
+            font-size: 16px;
+            padding: 13px 0px 14px 0px;
+            background-color: #f01c1c;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .copyright_section {
+            width: 100%;
+            float: left;
+            background-color: #f01c1c;
+            height: auto;
+        }
+        .copyright_text {
+            width: 100%;
+            float: left;
+            font-size: 16px;
+            color: #fefefd;
+            text-align: center;
+            margin-left: 0px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .copyright_text a {
+            color: #fefefd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_section header_bg">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo.png' %}" >
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" navbar-nav ml-auto">
+                        <li class="nav-item">
+                          <a class="nav-link " href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'coffees' %}">Coffees</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="login-bt">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span class="user-icon">
+                                            <i class="fa fa-user">
+
+                                            </i>                                   
+                                        </span>
+                                       Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="user-icon">
+                                            <i class="fa fa-search">
+
+                                            </i>                                   
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="about-section layout-padding">
+        <div class="container">
+            <div class="about-section_2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about_taital_box">
+                            <h1 class= "about_taital" >About Our shop</h1>
+                            <h1 class= "about_taital_1" >Coffee distribution '</h1>
+                            <p class=" about_text">
+                                has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorhas a more-or-less normal distribution of letters, as oppos
+                            </p>
+                            <div class="readmore-btn">
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-iman">
+                            <img src="{% static 'images/about-img.png' %}" class="about_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_section layout_padding margin_top90">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="footer_social_icon">
+                    <ul>
+                       <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                       <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                       <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                       <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                 </div>
+                 <div class="location_text">
+                    <ul>
+                       <li>
+                          <a href="#">
+                          <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+01 1234567890</span>
+                          </a>
+                       </li>
+                       <li>
+                          <a href="#">
+                          <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">demo@gmail.com</span>
+                          </a>
+                       </li>
+                    </ul>
+                 </div>
+                 <div class="form-group">
+                    <textarea class="update_mail" placeholder="Your Email" rows="5" id="comment" name="Your Email"></textarea>
+                    <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+    </div>
+    <div class="copyright_section">
+        <div class="container">
+           <div class="row">
+              <div class="col-sm-12">
+                 <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a>
+                 Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
+              </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
