@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>USER DETAILS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .row.content {
+    height:727px;
+	}
+
+    /*panel*/
+    .panel {
+        border: none;
+        box-shadow: none;
+    }
+
+    .panel-heading {
+        border-color:#eff2f7 ;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    .panel-title {
+        color: #2A3542;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    /*product list*/
+
+    .prod-cat li a{
+        border-bottom: 1px dashed #d9d9d9;
+    }
+
+    .prod-cat li a {
+        color: #3b3b3b;
+    }
+
+    .prod-cat li ul {
+        margin-left: 30px;
+    }
+
+    .prod-cat li ul li a{
+        border-bottom:none;
+    }
+    .prod-cat li ul li a:hover,.prod-cat li ul li a:focus, .prod-cat li ul li.active a , .prod-cat li a:hover,.prod-cat li a:focus, .prod-cat li a.active{
+        background: none;
+        color: #ff7261;
+    }
+
+    .pro-lab{
+        margin-right: 20px;
+        font-weight: normal;
+    }
+
+    .pro-sort {
+        padding-right: 20px;
+        float: left;
+    }
+
+    .pro-page-list {
+        margin: 5px 0 0 0;
+    }
+
+    .product-list img{
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+        -webkit-border-radius: 4px 4px 0 0;
+    }
+
+    .product-list .pro-img-box {
+        position: relative;
+    }
+    .adtocart {
+        background: #fc5959;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        text-align: center;
+        border: 3px solid #fff;
+        left: 45%;
+        bottom: -25px;
+        position: absolute;
+    }
+
+    .adtocart i{
+        color: #fff;
+        font-size: 25px;
+        line-height: 42px;
+    }
+
+    .pro-title {
+        color: #5A5A5A;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .product-list .price {
+        color:#fc5959 ;
+        font-size: 15px;
+    }
+
+    .pro-img-details {
+        margin-left: -15px;
+    }
+
+    .pro-img-details img {
+        width: 100%;
+    }
+
+    .pro-d-title {
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    .product_meta {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+        margin: 15px 0;
+    }
+
+    .product_meta span {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .product_meta a, .pro-price{
+        color:#fc5959 ;
+    }
+
+    .pro-price, .amount-old {
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    .amount-old {
+        text-decoration: line-through;
+    }
+
+    .quantity {
+        width: 120px;
+    }
+
+    .pro-img-list {
+        margin: 10px 0 0 -15px;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .pro-img-list a {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .pro-d-head {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="#">COFFO</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+            <h2>COFFO</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'admin_products' %}">Products</a></li>
+                <li><a href="{% url 'admin_orders' %}">Order</a></li>
+                <li><a href="{% url 'admin_users' %}">Users</a></li>
+            </ul><br>
+            </div>
+            <br>
+
+            <div class="col-sm-9">
+                <section class="ftco-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="h1 mb-4 text-center">USER DETAIL</h1>
+                                <div class="container bootdey">
+                                    <div class="col-md-12">
+                                        <section class="panel">
+                                            <div class="panel-body ">
+                                                <div class="col-md-6">
+                                                    <h4 class="pro-d-title">
+                                                        <a href="#" class="">
+
+                                                        </a>
+                                                    </h4>
+                                                    <p>
+                                                        Lubna
+                                                    </p>
+                                                    <div class="product_meta">
+                                                      <span class="posted_in"> <strong></strong> <a rel="tag" href="#"></a>, <a rel="tag" href="#"></a>, <a rel="tag" href="#"></a>, <a rel="tag" href="#"></a>.</span>
+                                                    </div>
+                                                    <div class="m-bot15"> <strong></strong> <span class="amount-old"></span>  <span class="pro-price"></span></div>
+                                                    <p>
+                                                      <button class="btn btn-round btn-danger" type="button">Delete</button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+  <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+  <script src="{% static 'admin/js/popper.js' %}"></script>
+  <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'admin/js/main.js' %}"></script>
+</body>
+</html>

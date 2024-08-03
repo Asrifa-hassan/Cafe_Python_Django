@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>USER</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .row.content {
+      height:727px;
+	  }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: center;
+      border-top: 1px solid #ddd;
+    }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">COFFO</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>COFFO</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><a href="{% url 'admin_products' %}">Products</a></li>
+          <li><a href="{% url 'admin_orders' %}">Order</a></li>
+          <li><a href="{% url 'admin_users' %}">Users</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul><br>
+      </div>
+      <br>
+
+      <div class="col-sm-9">
+        <section class="ftco-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-9">
+                    <h1 class="h1 mb-4 text-center">User</h1>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="table">
+                    <thead class="thead-primary">
+                      <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th> </th>
+      <!--						      <th>&nbsp;</th>-->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="alert" role="alert">
+                        <td class="align-content-center">1</td>
+                        <td class="align-content-center">
+                          <span>Lubna</span>
+                        </td>
+                        <td class="align-content-center">
+                        <div class="email">
+                          <span>lubna111@gmail.com</span>
+                          <span>Fugiat voluptates quasi nemo, ipsa perferendis</span>
+                        </div>
+                        </td>
+                        <td class="align-content-center">5566776687</td>
+                        <td class="quantity align-content-center">
+                          <a href="{% url 'admin_view_user' %}">view</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+  <script src="{% static 'admin/js/popper.js' %}"></script>
+  <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'admin/js/main.js' %}"></script>
+</body>
+</html>

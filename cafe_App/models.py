@@ -17,8 +17,7 @@ class User(AbstractUser):
 
     name = models.CharField(max_length=255, null=True, blank=True)
     user_type = models.IntegerField(default=1, choices=userchoices)
-    user_id = models.IntegerField(null=True, blank=True)
-    Phone_number = models.CharField(max_length=13, null=True, blank=True)
+    phone_number = models.CharField(max_length=13, null=True, blank=True)
     email = models.EmailField(null=True, blank=True, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -37,7 +36,7 @@ class Staff(models.Model):
 
 class Food_items(models.Model):
     item_name = models.CharField(max_length=50, null=True, blank=True)
-    item_id = models.IntegerField(null=True, blank=True)
+    item_id = models.IntegerField(unique=True,null=True, blank=True)
     description = models.CharField(max_length=225, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     price = models.DecimalField(decimal_places=2, max_digits=7, null=True, blank=True)
@@ -53,7 +52,7 @@ class Orders(models.Model):
     order_id = models.IntegerField(null=True, blank=True)
     staff_id = models.CharField(max_length=3, null=True, blank=True)
     user_id = models.IntegerField(null=True, blank=True)
-    item_id= models.IntegerField(null=True, blank=True)
+    item_id = models.IntegerField(null=True, blank=True)
     quantity = models.IntegerField(null=True, blank=True)
     order_time = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(decimal_places=2, max_digits=7, null=True, blank=True)

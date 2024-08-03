@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Read_more</title>
+    <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+    <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <style>
+        .about-section {
+            width: 100%;
+            float: left;
+        }
+        .layout-padding {
+            padding-top: 100px;
+            padding-bottom: 0px;
+        }
+        .about-section_2 {
+            width: 100%;
+            float: left;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col-md-6{
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .about_taital_box {
+            width: 100%;
+            float: left;
+            padding-top: 15px;
+        }
+        .about_taital {
+            width: 100%;
+            float: left;
+            font-size: 40px;
+            color: #3b3b3b;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-bottom: 0px;
+        }
+        h1 {
+            letter-spacing: 0;
+            position: relative;
+            padding: 0 0 10px 0;
+            line-height: normal;
+            margin: 0;
+        }
+        .about_taital_1 {
+            width: 100%;
+            float: left;
+            font-size: 30px;
+            color: #3b3b3b;
+            margin: 10px 0px;
+        }
+        .about_text {
+            width: 100%;
+            float: left;
+            font-size: 16px;
+            color: #232222;
+            margin: 0px;
+        }
+        .about_img {
+            max-width: 100%;
+            height: auto;
+            border-style: none;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-section layout-padding">
+        <div class="container">
+            <div class="about-section_2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about_taital_box">
+                            <h1 class= "about_taital" >About Our shop</h1>
+                            <h1 class= "about_taital_1" >Coffee distribution '</h1>
+                            <p class=" about_text">
+                                has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorhas a more-or-less normal distribution of letters, as oppos
+                                Lorem ipsum, dolor sit amet consectetur radicalising elit. Artem, numgeom qui cum rem temporibus, reiciendis quod veritatis quibusdam deserunt accusamus eius mollitia possimus quam exercitationem soluta minus sed doloremque dolorem.
+                                Lorem ipsum dolor sit amet consectetur radicalising elit. Deletion ear um inventor suscipit, nobis atque qui aspernatur nam quod incidunt a voluptate, repellat accusamus dolor eius minima odio! Sit, suscipit aspernatur.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-iman">
+                            <img src="{% static 'images/about-img.png' %}" class="about_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

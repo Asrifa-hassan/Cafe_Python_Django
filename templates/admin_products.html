@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>PRODUCTS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'admin/css/style.css' %}">
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .row.content {
+      height:727px;
+	  }
+    .table tbody td .email span:last-child {
+    font-size: 12px;
+    color: rgb(4 4 4);
+  }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      padding: 8px;
+      line-height: 1.42857143;
+      vertical-align: center;
+      border-top: 1px solid #ddd;
+    }
+    .alert-dismissible .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.75rem 4.25rem;
+        color: inherit;
+    }
+    li{
+        list-style-type:none;
+        }
+
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">COFFO</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>COFFO</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><a href="{% url 'admin_products' %}">Products</a></li>
+          <li><a href="{% url 'admin_orders' %}">Order</a></li>
+          <li><a href="{% url 'admin_users' %}">Users</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul><br>
+      </div>
+      <br>
+  
+      <div class="col-sm-9">
+          <br><br>
+           {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="message-item">
+                        {% if 'warning' in message.tags %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Warning!</strong> {{ message }}
+                            </div>
+                        {% elif 'success' in message.tags %}
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Success!</strong> {{ message }}
+                            </div>
+                        {% elif 'error' in message.tags %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Error!</strong> {{ message }}
+                            </div>
+                        {% elif 'info' in message.tags %}
+                            <div class="alert alert-info alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Info!</strong> {{ message }}
+                            </div>
+                        {% else %}
+                            <div class="alert alert-secondary alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Notice:</strong> {{ message }}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <section class="ftco-section">
+
+          <div class="container">
+            <div class="row">
+
+              {% if data %}
+
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-9">
+                    <h1 class="h1 mb-4 text-center">OUR PRODUCTS</h1>
+                  </div>
+                  <div class="col-md-3 text-center align-content-center">
+                    <a href="{% url 'add_item' %}"><button class="btn btn-round btn-danger" type="button">Add</button></a>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="table">
+                    <thead class="thead-primary">
+                      <tr>
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>&nbsp;</th>
+      <!--						      <th>&nbsp;</th>-->
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      {% for i in data %}
+                      <tr class="alert" role="alert">
+                        <td class="align-content-center">{{ forloop.counter }}</td>
+                        <td class="align-content-center">
+                          <img src="{{ i.image.url }}" width="70px">
+                        </td>
+                        <td class="align-content-center">
+                        <div class="email">
+                          <span>{{ i.item_name }}</span>
+
+                        </div>
+                        </td>
+                        <td class="align-content-center">₹{{ i.price }}</td>
+                        <td class="quantity align-content-center">
+                          <a href="{% url 'admin_view_product' i.id %}">view</a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {% else %}
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-9">
+<!--                    <h1 class="h1 mb-4 text-center">OUR PRODUCTS</h1>-->
+                  </div>
+                  <div class="col-md-3 text-center align-content-center">
+                    <a href="{% url 'add_item' %}"><button class="btn btn-round btn-danger" type="button">Add new</button></a>
+                  </div>
+                </div>
+
+               <div class="container" style="width:50%;height:400px; margin:10% auto;">
+                  <img src="{% static 'images/no-data.png'%}">
+               </div>
+
+              {% endif %}
+            </div>
+          </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </div>
+      
+  <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+  <script src="{% static 'admin/js/popper.js' %}"></script>
+  <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'admin/js/main.js' %}"></script>
+</body>
+</html>

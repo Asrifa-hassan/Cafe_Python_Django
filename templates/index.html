@@ -3,11 +3,12 @@
     {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>COFFO</title>
     <link  href="{% static 'css/style.css' %}" rel="stylesheet">
     <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
     <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/solid.min.css" integrity="sha512-/r+0SvLvMMSIf41xiuy19aNkXxI+3zb/BN8K9lnDDWI09VM0dwgTMzK7Qi5vv5macJ3VH4XZXr60ip7v13QnmQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         *{
             margin: 0;
@@ -103,7 +104,6 @@
             flex-flow: row wrap;
             align-items: center;
         }
-
         a {
             color: rgb(255 255 255);
             text-decoration: none;
@@ -111,9 +111,6 @@
             float: left;
             text-transform: uppercase;
             padding: 0px 0px 0px 43px;
-        }
-        .user-icon {
-            padding-right: 15px;
         }
         .fa {
             display: inline-block;
@@ -123,8 +120,8 @@
             line-height: 1;
         }
         .login-bt {
-            width: 210px;
-            margin-top: 20px;
+            width: 292px;
+            margin-top: 18px;
         }
         .login-bt li a:hover {
             color: #f01c1c;
@@ -213,7 +210,7 @@
         .col-md-6{
             position: relative;
             width: 100%;
-            min-height: 1px;
+            height:fix-content;
             padding-right: 15px;
             padding-left: 15px;
         }
@@ -279,6 +276,7 @@
         .coffee_section {
             width: 100%;
             float: left;
+            height:800px;
         }
         .col-md-12{
             position: relative;
@@ -342,6 +340,13 @@
             vertical-align: middle;
             border-style: none;
         }
+        .coffee_box {
+            width: 100%;
+            float: left;
+            background-color: #242c2f;
+            height: 300px;
+            padding: 20px 20px;
+        }
         #main_slider a.carousel-control-prev {
             left: -50px;
             top: 170px;
@@ -356,6 +361,7 @@
             font-style: normal;
             font-weight: normal;
             line-height: 1;
+            font-size:20px;
         }
         .blog_section {
             width: 100%;
@@ -596,6 +602,31 @@
         .copyright_text a {
             color: #fefefd;
         }
+        .navbar-light .navbar-toggler-icon {
+            background-image: url(" data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E ");
+        }
+        .collapse:not(.show) {
+            display: none;
+        }
+        .navbar-toggler:not(:disabled):not(.disabled) {
+            cursor: pointer;
+        }
+        .navbar-toggler-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            content: "";
+            background: no-repeat center center;
+            background-size: 100% 100%;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .navbar-light .navbar-toggler {
+                color: #fff;
+                border-color: #fff;
+                background: #fff;
+            }
+        }
     </style>
 </head>
 <body>
@@ -630,16 +661,12 @@
                         <div class="login-bt">
                             <ul>
                                 <li>
-                                    <a href="#">
-                                        <span class="user-icon">
-                                            <i class="fa fa-search">
-
-                                            </i>                                   
-                                        </span>
-                                    </a>
+                                    <a href="{% url 'login_page' %}">login</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'login_page' %}">login</a>
+                                    <a href="{% url 'login_page' %}">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:24px"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -657,10 +684,10 @@
                 <p class="banner_text">more-or-less normal distribution of letters, as opposed to using </p>
                 <div class="btn_main">
                     <div class="about_bt active">
-                        <a href="#">About Us</a>
+                        <a href="{% url 'about' %}">About Us</a>
                     </div>
                     <div class="callnow_bt">
-                        <a href="#">Call Now</a>
+                        <a href="{% url 'contact' %}">Call Now</a>
                     </div>
                 </div>
             </div>
@@ -678,7 +705,7 @@
                                 has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorhas a more-or-less normal distribution of letters, as oppos
                             </p>
                             <div class="readmore-btn">
-                                <a href="#">Read More</a>
+                                <a href="{% url 'Read_more' %}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -706,35 +733,35 @@
                      <div class="container-fluid">
                         <div class="row">
                            <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="{% static 'images/img-1.png' %}"></div>
+                              <div class="coffee_img"><img src="{{ i.image.url }}"></div>
                               <div class="coffee_box">
-                                 <h3 class="types_text">TYPES OF COFFEE</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <h3 class="types_text">{{ i.item_name }}</h3>
+                                 <p class="looking_text">{{ i.description }}</p>
+                                 <div class="read_bt"><a href="{% url 'cofe_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="{% static 'images/img-2.png' %}"></div>
+                              <div class="coffee_img"><img src="{{ i.image.url }}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">BEAN VARIETIES</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'bean_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="{% static 'images/img-3.png' %}"></div>
+                              <div class="coffee_img"><img src="{{ i.image.url }}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE &amp; PASTRY</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'pastry_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="{% static 'images/img-4.png' %}"></div>
+                              <div class="coffee_img"><img src="{{ i.image.url }}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE TO GO</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'caffe' %}">Read More</a></div>
                               </div>
                            </div>
                         </div>
@@ -747,32 +774,32 @@
                               <div class="coffee_img"><img src="{% static 'images/img-1.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">TYPES OF COFFEE</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'cofe_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-2.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">BEAN VARIETIES</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'bean_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-3.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE &amp; PASTRY</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'pastry_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-4.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE TO GO</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'caffe' %}">Read More</a></div>
                               </div>
                            </div>
                         </div>
@@ -785,89 +812,84 @@
                               <div class="coffee_img"><img src="{% static 'images/img-1.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">TYPES OF COFFEE</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'cofe_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-2.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">BEAN VARIETIES</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'bean_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-3.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE &amp; PASTRY</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'pastry_read' %}">Read More</a></div>
                               </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="{% static 'images/img-4.png' %}"></div>
                               <div class="coffee_box">
                                  <h3 class="types_text">COFFEE TO GO</h3>
-                                 <p class="looking_text">looking at its layout. The point of</p>
-                                 <div class="read_bt"><a href="#">Read More</a></div>
+                                 <p class="looking_text">looking at its layout. The point of has a more-or-less normal distribution of letters, as opposed to using </p>
+                                 <div class="read_bt"><a href="{% url 'caffe' %}">Read More</a></div>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-               <i class="fa fa-arrow-left"></i>
-               </a>
-               <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-               <i class="fa fa-arrow-right"></i>
-               </a>
             </div>
         </div>
-        <div class="blog_section layout_padding">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <h1 class="about_taital">Our Blog</h1>
-                  </div>
-               </div>
-               <div class="blog_section_2">
-                  <div class="row">
-                     <div class="col-md-6">
+    </div>
+    <div class="blog_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="about_taital">Our Blog</h1>
+                </div>
+            </div>
+            <div class="blog_section_2">
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="blog_box">
                            <div class="blog_img"><img src="{% static 'images/blog-img1.png' %}"></div>
                            <h4 class="date_text">05 April</h4>
                            <h4 class="prep_text">PREP TECHNIQUES Coffee</h4>
                            <p class="lorem_text">distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moredistracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more</p>
                         </div>
-                        <div class="read_btn"><a href="#">Read More</a></div>
-                     </div>
-                     <div class="col-md-6">
+                        <div class="read_btn"><a href="{% url 'blog_read' %}">Read More</a></div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="blog_box">
                            <div class="blog_img"><img src="{% static 'images/blog-img2.png' %}"></div>
                            <h4 class="date_text">05 April</h4>
                            <h4 class="prep_text">Enjoy Best Coffee</h4>
                            <p class="lorem_text">distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moredistracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more</p>
                         </div>
-                        <div class="read_btn"><a href="#">Read More</a></div>
-                     </div>
-                  </div>
-               </div>
+                        <div class="read_btn"><a href="{% url 'blog_read2' %}">Read More</a></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="contact_section layout_padding">
-            <div class="container">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <h1 class="contact_taital">Get In Touch</h1>
-                  </div>
-               </div>
+    </div>
+    <div class="contact_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Get In Touch</h1>
+                </div>
             </div>
-            <div class="container-fluid">
-               <div class="contact_section_2">
-                  <div class="row">
-                     <div class="col-md-12">
+        </div>
+        <div class="container-fluid">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="mail_section_1">
                            <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
                            <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
@@ -875,29 +897,29 @@
                            <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
                            <div class="send_bt"><a href="#">Send</a></div>
                         </div>
-                     </div>
-                     <div class="map_main">
+                    </div>
+                    <div class="map_main">
                         <div class="map-responsive">
-                           <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="250" height="500" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.1313710519335!2d74.9928642750686!3d12.507450387766891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba483d25c8a7d37%3A0x37a30287fb9e45!2sStack%20Technology%20Centre!5e0!3m2!1sen!2sin!4v1720517032591!5m2!1sen!2sin" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer_section layout_padding">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="footer_social_icon">
+    </div>
+    <div class="footer_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer_social_icon">
                         <ul>
                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         </ul>
-                     </div>
-                     <div class="location_text">
+                    </div>
+                    <div class="location_text">
                         <ul>
                            <li>
                               <a href="#">
@@ -910,26 +932,24 @@
                               </a>
                            </li>
                         </ul>
-                     </div>
-                     <div class="form-group">
-                        <textarea class="update_mail" placeholder="Your Email" rows="5" id="comment" name="Your Email"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="update_mail" placeholder="Your Email" name="Your Email"></textarea>
                         <div class="subscribe_bt"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="copyright_section">
-            <div class="container">
-               <div class="row">
-                  <div class="col-sm-12">
+        </div>
+    </div>
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
                      <p class="copyright_text">2020 All Rights Reserved. Design by</p>
-                  </div>
-               </div>
+                </div>
             </div>
-         </div>
+        </div>
+    </div>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-        
-
 </body>
 </html>

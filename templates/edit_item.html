@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>EDIT_ITEMS</title>
+  <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+     .row.content {height: 550px}
+     /* Set gray background color and 100% height */
+     .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+     .row.content {
+        height:640px;
+     }
+     .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: center;
+        border-top: 1px solid #ddd;
+     }
+     /* On small screens, set height to 'auto' for the grid */
+     @media screen and (max-width: 767px) {
+     .row.content {height: auto;}
+     }
+     * {
+        box-sizing: border-box;
+     }
+     h2{
+        text-align: center;
+        font-size: 30px;
+     }
+     input {
+        display: flex;
+        width: 100%;
+        height: 68px;
+        margin: 10px 0px;
+        padding-left: 10px;
+     }
+     .btn-danger {
+        width: 150px;
+        height: 44px;
+        color: #fff;
+        font-size: 17px;
+        background-color: #038ecf;
+        border-color: #038ecf;
+     }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">COFFO</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>COFFO</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><a href="{% url 'admin_products' %}">Products</a></li>
+          <li><a href="{% url 'admin_orders' %}">Order</a></li>
+          <li><a href="{% url 'admin_users' %}">Users</a></li>
+        </ul><br>
+      </div>
+      <br>
+      <div class="col-sm-9">
+        <h2>New Items</h2>
+        <div class="row align-content-center">
+          <div class="box text-center mx-auto" style="width: 90%; margin: 0 auto;">
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% for i in data %}
+              <input type="text" id="" name="item_name" placeholder="Item Name" value="{{ i.item_name }}" required>
+              <input type="text" id="" name="item_id" placeholder="Item ID" value="{{ i.item_id }}" required>
+              <input type="text" id="" name="description" placeholder="description" value="{{ i.description }}">
+              <input type="text" id=" " name="price" placeholder="Price" value="{{ i.price }}" required>
+              <input type="file" id=" " name="Image" placeholder="Choose File"><br>
+              <a><button class="btn btn-round btn-danger" type="submit">Edit</button></a>
+              {% endfor %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

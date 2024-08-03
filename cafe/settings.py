@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib import messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +133,11 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'cafe_App.user'
+
+MESSAGE_TAGS = {
+    messages.INFO: 'alert alert_info',
+    messages.SUCCESS: 'alert alert_success',
+    messages.WARNING: 'alert alert_warning',
+    messages.ERROR: 'alert alert_danger',
+    messages.DEBUG: 'alert alert_info',
+}

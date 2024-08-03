@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>blog_read</title>
+    <link  href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link  href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+    <link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <style>
+        .blog_section_2 {
+            width: 80%;
+            padding-top: 60px;
+            padding-left: 50px;
+        }
+        .blog_box {
+            width: 42%;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 20px 0px;
+            margin-left: 400px;
+        }
+        .blog_img {
+            width: 100%;
+        }
+        .date_text {
+            width: 93px;
+            font-size: 15px;
+            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 20px 0px;
+            background-color: #f01c1c;
+            position: absolute;
+            top: 9px;
+        }
+        h4{
+            letter-spacing: 0;
+            position: relative;
+            padding: 0 0 10px 0;
+            line-height: normal;
+            margin: 0;
+        }
+        .lorem_text {
+            width: 100%;
+            font-size: 14px;
+            color: #3b3b3b;
+            margin: 0px;
+            padding: 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog_section_2">
+        <div class="blog_box">
+            <div class="blog_img"><img src="{% static 'images/blog-img1.png' %}"></div>
+            <h4 class="date_text">05 April</h4>
+            <h4 class="prep_text">PREP TECHNIQUES Coffee</h4>
+            <p class="lorem_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, ipsam earum quia officiis asperiores aliquam ea laborum ipsum! Libero numquam recusandae ex illum esse soluta reprehenderit aliquam laudantium rem hic.distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a moredistracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more</p>
+        </div>
+    </div>
